@@ -3,7 +3,7 @@
 #include <vector>
 
 std::vector<std::vector<char>> floor;
-int liveTiles = -1;
+int liveTiles = 0;
 
 void goDown(int, int);
 void goLeft(int, int);
@@ -35,6 +35,7 @@ void goDown (int line, int tile) {
             case '-': 
                 ++liveTiles;
                 goLeft(line, tile);
+                ++liveTiles;
                 goRight(line, tile);
                 break;
         }
@@ -63,6 +64,7 @@ void goLeft (int line, int tile) {
             case '|': 
                 ++liveTiles;
                 goUp(line, tile);
+                ++liveTiles;
                 goDown(line, tile);
                 break;
             case '-': 
@@ -94,6 +96,7 @@ void goRight (int line, int tile) {
             case '|': 
                 ++liveTiles;
                 goUp(line, tile);
+                ++liveTiles;
                 goDown(line, tile);
                 break;
             case '-': 
@@ -130,6 +133,7 @@ void goUp (int line, int tile) {
             case '-': 
                 ++liveTiles;
                 goLeft(line, tile);
+                ++liveTiles;
                 goRight(line, tile);
                 break;
         }
